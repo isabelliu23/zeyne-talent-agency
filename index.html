@@ -386,13 +386,15 @@
         .slogan {
             font-family: 'Playfair Display', serif;
             font-size: 48px;
-            color: #36454F;
             font-weight: 700;
             margin-bottom: 24px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(139, 150, 138, 0.5), 0 4px 15px rgba(0, 0, 0, 0.4);
-            animation: sloganGlow 2s ease-in-out infinite alternate;
+            background: linear-gradient(180deg, #36454F 0%, #7C8488 50%, #36454F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
 
         @keyframes sloganGlow {
