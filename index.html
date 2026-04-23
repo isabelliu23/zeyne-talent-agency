@@ -15,7 +15,7 @@
             --slate-light: #7C8488;
             --gray: #D1D5D8;
             --white: #ffffff;
-            --gold: #8B968A;
+            --gold: #D1D5D8;
             --gold-light: #B7B8BB;
         }
         
@@ -385,14 +385,24 @@
     
         .slogan {
             font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            color: var(--gold);
-            font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+            font-size: 48px;
+            color: #D1D5D8;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(254, 243, 199, 0.3);
+            text-shadow: 0 0 20px rgba(139, 150, 138, 0.5), 0 4px 15px rgba(0, 0, 0, 0.4);
             animation: sloganGlow 2s ease-in-out infinite alternate;
+        }
+        .slogan::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #8B968A, transparent);
         }
         @keyframes sloganGlow {
             from { text-shadow: 0 2px 10px rgba(254, 243, 199, 0.3); }
