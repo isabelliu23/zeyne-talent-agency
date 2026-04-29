@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeyne Talent Agency | Executive Search & Recruitment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #36454F;
+            --navy-light: #4A585E;
+            --slate: #B7B8BB;
+            --slate-light: #7C8488;
+            --gray: #D1D5D8;
+            --white: #ffffff;
+            --gold: #D1D5D8;
+            --gold-light: #B7B8BB;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--navy);
+            background: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--gray);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--navy);
+        }
+        
+        .cta-btn {
+            background: var(--white);
+            temp-color: var(--navy);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .cta-btn:hover {
+            background: var(--navy-light);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            background-image: url('');
+              background-position: center;
+            background-position: center;
+            temp-color: var(--navy);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+        
+        .btn-white {
+            background: var(--gray);
+            color: var(--navy);
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        
+        .btn-white:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            temp-color: var(--navy);
+            padding: 12px 26px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Services */
+        .services {
+            padding: 80px 0;
+            background: var(--gray);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--slate-light);
+            margin-bottom: 48px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        
+        .service-card h3 {
+            font-size: 18px;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+        
+        .service-card p {
+            font-size: 14px;
+            color: var(--slate-light);
+        }
+        
+        /* Stats */
+        .stats {
+            background: var(--white);
+            padding: 60px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            temp-color: var(--navy);
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background: var(--gray);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+        
+        .contact-list {
+            list-style: none;
+        }
+        
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+        
+        .contact-list svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--gold);
+            fill: none;
+        }
+        
+        .contact-form {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--navy);
+        }
+        
+        .submit-btn {
+            background: var(--white);
+            temp-color: var(--navy);
+            border: none;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: var(--navy-light);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--white);
+            temp-color: var(--navy);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    
+        .slogan {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #36454F 0%, #7C8488 50%, #36454F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            border-bottom: 3px solid #36454F;
+            padding-bottom: 8px;
+        }
+
+        @keyframes sloganGlow {
+            from { text-shadow: 0 2px 10px rgba(254, 243, 199, 0.3); }
+            to { text-shadow: 0 2px 20px rgba(254, 243, 199, 0.6), 0 0 30px rgba(254, 243, 199, 0.3); }
+        }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container" style="position: relative;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                </div>
+<div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="logo-text" style="display:none">ZEYNE</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="cta-btn">Get in Touch</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container" style="position: relative;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                </div>
+<div class="container">
+            
+            <p class="slogan">Connecting Talent, Creating Futures</p>
+            <p>Your trusted partner for executive search and professional recruitment solutions across Asia.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-white">For Employers</a>
+                <a href="#contact" class="btn-outline">For Candidates</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="container" style="position: relative;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                </div>
+<div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive recruitment solutions tailored to your needs</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Executive Search</h3>
+                    <p>Finding exceptional leadership talent for your organization through targeted headhunting.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <h3>Professional Recruitment</h3>
+                    <p>End-to-end recruitment services from candidate sourcing to final placement.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Talent Advisory</h3>
+                    <p>Strategic workforce planning and career consultation for both employers and candidates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats">
+        <div class="container" style="position: relative;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                </div>
+<div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Placements</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Corporate Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="container" style="position: relative;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                </div>
+<div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p style="margin-bottom: 24px; color: var(--slate-light);">Ready to find your next star employee? Or looking for your next career opportunity? Let's talk.</p>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L9.65 21a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/></svg>
+                            <span>+852 6439 5821</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>enquiry@newcreationera.com.hk</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            <span>www.zeyne.com.hk</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label>Interested In</label>
+                            <select>
+                                <option>Executive Search</option>
+                                <option>Professional Recruitment</option>
+                                <option>Talent Advisory</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="4" placeholder="Tell us about your needs"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container" style="position: relative;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                </div>
+<div class="container">
+            <p>&copy; 2024 Zeyne Talent Agency. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
