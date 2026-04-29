@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeyne Talent Agency | Premium Event Staffing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --charcoal: #36454F;
+            --steel: #4A585E;
+            --slate: #5C6669;
+            --light-gray: #7C8488;
+            --pearl: #D1D5D8;
+            --white: #FAFBFC;
+            --accent: #A5ABAC;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        
+        nav.scrolled {
+            background: rgba(250, 251, 252, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 48px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: var(--charcoal);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--charcoal);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(180deg, var(--white) 0%, var(--pearl) 100%);
+            padding: 120px 48px;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: 18px;
+            color: var(--slate);
+            margin-bottom: 48px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 48px;
+            background: transparent;
+            border: 1px solid var(--charcoal);
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s;
+        }
+        
+        .cta-button:hover {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+        
+        /* Talent Grid */
+        .talent-section {
+            padding: 120px 48px;
+            background: var(--white);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .talent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .talent-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            background: var(--pearl);
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .talent-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        
+        .talent-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .talent-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px;
+            background: linear-gradient(transparent, rgba(54, 69, 79, 0.9));
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.4s;
+        }
+        
+        .talent-card:hover .talent-info {
+            transform: translateY(0);
+        }
+        
+        .talent-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .talent-info p {
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        /* Services */
+        .services-section {
+            padding: 120px 48px;
+            background: var(--charcoal);
+            color: var(--white);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .service-item {
+            text-align: center;
+        }
+        
+        .service-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .service-item p {
+            font-size: 14px;
+            color: var(--pearl);
+            font-weight: 300;
+        }
+        
+        /* Chatbot Section */
+        .chatbot-section {
+            padding: 120px 48px;
+            background: var(--white);
+            text-align: center;
+        }
+        
+        .chatbot-container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid var(--pearl);
+            padding: 48px;
+        }
+        
+        .chatbot-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+        
+        .chatbot-container p {
+            color: var(--slate);
+            margin-bottom: 32px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 80px 48px;
+            background: var(--charcoal);
+            color: var(--white);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            letter-spacing: 4px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 48px;
+        }
+        
+        .footer-links a {
+            color: var(--pearl);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .footer-contact p {
+            color: var(--pearl);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .talent-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 24px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 120px 24px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .talent-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">ZEYNE</div>
+        <div class="nav-links">
+            <a href="#roster">Roster</a>
+            <a href="#services">Services</a>
+            <a href="#join">Join the Agency</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Connecting Talent, Creating Futures</h1>
+            <p class="subtitle">Premium event staffing and talent agency for discerning clients</p>
+            <a href="#roster" class="cta-button">Discover Talent</a>
+        </div>
+    </section>
+
+    <!-- Talent Showcase -->
+    <section class="talent-section" id="roster">
+        <h2 class="section-title">Our Roster</h2>
+        <div class="talent-grid">
+            <div class="talent-card">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop" alt="Talent">
+                <div class="talent-info">
+                    <h3>Emma L.</h3>
+                    <p>Host & Brand Ambassador</p>
+                </div>
+            </div>
+            <div class="talent-card">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop" alt="Talent">
+                <div class="talent-info">
+                    <h3>James T.</h3>
+                    <p>Live Music Performance</p>
+                </div>
+            </div>
+            <div class="talent-card">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop" alt="Talent">
+                <div class="talent-info">
+                    <h3>Sarah K.</h3>
+                    <p>Event Host</p>
+                </div>
+            </div>
+            <div class="talent-card">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45fdd?w=600&h=800&fit=crop" alt="Talent">
+                <div class="talent-info">
+                    <h3>Michael C.</h3>
+                    <p>Commercial Model</p>
+                </div>
+            </div>
+            <div class="talent-card">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=800&fit=crop" alt="Talent">
+                <div class="talent-info">
+                    <h3>Lisa M.</h3>
+                    <p>Fashion Model</p>
+                </div>
+            </div>
+            <div class="talent-card">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&h=800&fit=crop" alt="Talent">
+                <div class="talent-info">
+                    <h3>David R.</h3>
+                    <p>Promotional Staff</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services-section" id="services">
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Executive Search</h3>
+                <p>Premium candidates for corporate events</p>
+            </div>
+            <div class="service-item">
+                <h3>Event Staffing</h3>
+                <p>Professional hosts and models</p>
+            </div>
+            <div class="service-item">
+                <h3>Talent Booking</h3>
+                <p>Live performances and entertainment</p>
+            </div>
+            <div class="service-item">
+                <h3>Brand Activations</h3>
+                <p>Promotional campaigns</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot / Contact -->
+    <section class="chatbot-section" id="contact">
+        <div class="chatbot-container">
+            <h2>Let's Connect</h2>
+            <p>Whether you're seeking talent or joining our roster, we'd love to hear from you.</p>
+            <a href="mailto:info@zeyne.com" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">ZEYNE</div>
+            <div class="footer-links">
+                <a href="#roster">Roster</a>
+                <a href="#services">Services</a>
+                <a href="#join">Join</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-contact">
+                <p>info@zeyne.com</p>
+                <p>+852 1234 5678</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
